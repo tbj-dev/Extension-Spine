@@ -5,7 +5,7 @@ Early MVP scaffold. This extension renders Spine skeletons using PixiJS + pixi-s
 Setup
 - In ST, install this extension folder (third-party).
 - Open Settings → Extensions → Spine Viewer, toggle Enabled.
-- Put your spine files under /data/<user-handle>/assets/spine:
+- Put your spine files under `/data/<user-handle>/assets/spine`:
 
 ```js
 extension_settings["Extension-Spine"].characterModelMapping = {
@@ -27,4 +27,5 @@ Notes
 - Z-order and positioning are minimal; per-character zIndex can be tweaked in `characterModelsSettings`.
 - For models with multiple textures, ensure the atlas references resolve relative to the atlas file URL.
 - Spine runtimes and assets may have licensing constraints; ensure compliance.
+
 
