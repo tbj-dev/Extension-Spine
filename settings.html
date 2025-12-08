@@ -1,0 +1,122 @@
+<div class="spine-extension-settings">
+  <div class="inline-drawer">
+    <div class="inline-drawer-toggle inline-drawer-header">
+      <b>Spine Viewer (MVP)</b>
+      <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
+    </div>
+    <div class="inline-drawer-content">
+      <div class="flex-container">
+        <input id="spine_enabled_checkbox" type="checkbox" />
+        <label for="spine_enabled_checkbox">Enabled</label>
+      </div>
+      <!-- Dragging -->
+      <div class="spine-section">
+        <h4>Interaction</h4>
+        <div class="flex-container">
+          <input id="spine_drag_checkbox" type="checkbox" />
+          <label for="spine_drag_checkbox">Enable drag mode (like Live2D)</label>
+        </div>
+        <div class="flex-container">
+          <input id="spine_multi_toggle" type="checkbox" />
+          <label for="spine_multi_toggle">Enable multiple motions</label>
+        </div>
+      </div>
+
+      <hr class="sysHR" />
+
+      <!-- Character & Model Section -->
+      <div class="spine-section">
+        <h4>Character & Model</h4>
+        <div class="flex-container">
+          <label for="spine_character_select">Character</label>
+          <select id="spine_character_select"></select>
+          <button id="spine_char_refresh" class="menu_button">Refresh</button>
+        </div>
+        <div class="flex-container">
+          <label for="spine_model_select">Saved Models</label>
+          <select id="spine_model_select" style="max-width: 60%"></select>
+        </div>
+        <div class="flex-container">
+          <label for="spine_folder_browse">Add model</label>
+          <input id="spine_folder_picker" type="file" webkitdirectory directory style="display:none" />
+          <button id="spine_folder_browse" class="menu_button">Browse…</button>
+          <!-- Hidden inputs to store auto-detected skeleton/atlas from Browse -->
+          <input id="spine_model_json" type="hidden" />
+          <input id="spine_model_atlas" type="hidden" />
+        </div>
+        <div class="flex-container">
+          <button id="spine_model_remove" class="menu_button menu_button-danger">Remove Model</button>
+        </div>
+      </div>
+
+      <hr class="sysHR" />
+
+      <!-- Model Settings Section -->
+      <div class="spine-section">
+        <h4>Model Settings</h4>
+        <div class="live2d-parameter">
+          <div class="live2d-parameter-title">
+            <label for="spine_model_scale">
+              Model scale <br/>(<span id="spine_model_scale_value"></span>x)
+            </label>
+          </div>
+          <div class="live2d-slider-div">
+            <input id="spine_model_scale" type="range" min="0.1" max="5" step="0.1" value="1.0" />
+            <small>Scale of the model</small>
+          </div>
+        </div>
+        <div class="live2d-parameter">
+          <div class="live2d-parameter-title">
+            <label for="spine_model_x">
+              Model center X offset <br/>(<span id="spine_model_x_value"></span>%)
+            </label>
+          </div>
+          <div class="live2d-slider-div">
+            <input id="spine_model_x" type="range" min="-100" max="100" step="1" value="0" />
+            <small>Set the model X position (alternative to dragging)</small>
+          </div>
+        </div>
+        <div class="live2d-parameter">
+          <div class="live2d-parameter-title">
+            <label for="spine_model_y">
+              Model center Y offset <br/>(<span id="spine_model_y_value"></span>%)
+            </label>
+          </div>
+          <div class="live2d-slider-div">
+            <input id="spine_model_y" type="range" min="-100" max="100" step="1" value="0" />
+            <small>Set the model Y position (alternative to dragging)</small>
+          </div>
+        </div>
+        <div class="live2d-parameter">
+          <div class="live2d-parameter-title">
+            <label for="spine_anim_speed">
+              Animation speed <br/>(<span id="spine_anim_speed_value"></span>x)
+            </label>
+          </div>
+          <div class="live2d-slider-div">
+            <input id="spine_anim_speed" type="range" min="0.1" max="3" step="0.1" value="0.8" />
+            <small>Multiplier applied to animation update speed</small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animations Section -->
+      <div class="spine-section">
+        <h4>Animations</h4>
+        <div id="spine_idle_block" class="spine-mapping-table"></div>
+        <div id="spine_starter_block" class="spine-mapping-table"></div>
+        <div id="spine_click_block" class="spine-mapping-table"></div>
+      </div>
+
+      <hr class="sysHR" />
+
+      <!-- Expression Mapping Section -->
+      <div class="spine-section">
+        <h4>Expression Mapping</h4>
+        <div id="spine_mapping_table" class="spine-mapping-table"></div>
+      </div>
+
+      <hr class="sysHR" />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+.spine-canvas-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none; /* pass through by default */
+}
+
+.spine-canvas-wrapper > canvas {
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: inherit; /* follow wrapper: auto only when drag mode enabled */
+  cursor: inherit;
+}
+
+/* Optional: hide ST sprites when Spine overlaying the same holder */
+.spine-suppress img.expression {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.expression-holder:has(.spine-canvas-wrapper) img.expression,
+#expression-wrapper:has(.spine-canvas-wrapper) img.expression,
+#visual-novel-wrapper:has(.spine-canvas-wrapper) img.expression {
+  visibility: hidden !important;
+}
+
+/* Fullscreen fallback if parent container has zero size */
+.spine-canvas-wrapper.spine-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+}
+
+/* Settings panel */
+.spine-mapping-table { display: block; }
+.spine-expression-mapping { margin: 6px 0 8px; border-bottom: 1px solid #3a3a3a; padding: 6px 6px 8px; background: rgba(255,255,255,0.02); border-radius: 4px; }
+.spine-parameter { display: flex; align-items: center; margin-bottom: 4px; }
+.spine-parameter-title { width: 38%; padding: 2px 8px; box-sizing: border-box; font-size: 0.95em; opacity: 0.9; }
+.spine-param-head { display: flex; align-items: center; justify-content: space-between; }
+.spine-param-head .spine-parameter-title { font-weight: 700; }
+.spine-head-actions { display: flex; align-items: center; gap: 4px; }
+.spine-param-body { display: flex; flex-direction: column; gap: 8px; }
+.spine-select-div { display: flex; align-items: center; gap: 6px; flex-wrap: nowrap; font-size: 0.95em; }
+.spine-select-div select.mm-sel { flex: 1 1 auto; min-width: 140px; max-width: 100%; }
+.spine-select-div .spine_delete_button { flex: 0 0 auto; margin-left: 4px; }
+.spine-select-div select.mm-sel { min-width: 180px; }
+.spine-select-div .spine_delete_button { margin-left: 4px; }
+.spine-head-actions .menu_button { padding: 4px 6px; }
+.spine-select-div .menu_button { padding: 3px 6px; }
+.spine-motions { display: flex; flex-direction: column; gap: 4px; max-height: 140px; overflow: auto; padding: 2px 0; }
+.spine-motions-empty { opacity: 0.7; font-size: 0.9em; padding: 4px 0; }
+.spine-icon-btn { display: inline-flex; align-items: center; justify-content: center; padding: 4px 6px; }
+.spine-icon-btn.danger { color: #f55; }
+.spine-add-btn { padding: 2px 6px; }
+.spine-row { margin: 6px 0; }
+.spine-divider { height: 1px; background: #2a2a2a; margin: 4px 0; }
+  display: grid;
+  grid-template-columns: 1fr 2fr 1.2fr;
+  gap: 6px 8px;
+  align-items: start; /* keep tall cells from overlapping siblings */
+}
+.spine-mapping-table .hdr {
+  font-weight: 600;
+}
+/* Live2D-like param rows for identical UX */
+.live2d-parameter { display: flex; align-items: center; border-bottom: 1px solid #2a2a2a; margin-bottom: 10px; padding-bottom: 10px; }
+.live2d-parameter-title { width: 40%; box-sizing: border-box; padding: 1em; margin: 0; margin-right: 0px; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; color: white; }
+.live2d-slider-div small { display: block; opacity: 0.8; }
+
+.spine-mapping-table .row {
+  display: contents;
+}
+.spine-mapping-table .row-actions {
+  grid-column: 1 / -1; /* span all columns */
+  display: flex;
+  gap: 8px;
+  padding: 4px 0 10px 0;
+}
+.spine-map-motions { display: flex; flex-direction: column; gap: 4px; max-height: 140px; overflow: auto; }
+.spine-map-motions .mm-row { display: flex; align-items: center; gap: 8px; }
+.spine-map-motions .mm-row select { min-width: 180px; }
+.spine-map-motions .mm-row .remove { opacity: 0.85; }
+/* Settings panel */
+.spine-extension-settings .spine-section h4 {
+  margin: 8px 0 4px;
+}
+.spine-extension-settings .flex-container {
+  gap: 8px;
+  align-items: center;
+}
+.spine-extension-settings select {
+  max-width: 500px;
+}
