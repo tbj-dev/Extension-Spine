@@ -570,29 +570,7 @@ async function loadLibsOnce() {
       await loadScript(url);
     }
   } catch (e) {
-    console.warn('[Spine] Local libs failed to load, falling back to CDN...', e);
-    // Fallback to CDN versions (ensure compatibility of versions with your Spine data)
-    const cdnCandidates = [
-      ['https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js',
-       'https://cdn.jsdelivr.net/npm/pixi-spine@3.1.11/dist/pixi-spine.umd.min.js'],
-      ['https://unpkg.com/pixi.js@6.5.10/dist/browser/pixi.min.js',
-       'https://unpkg.com/pixi-spine@3.1.11/dist/pixi-spine.umd.min.js'],
-      ['https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js',
-       'https://cdn.jsdelivr.net/npm/pixi-spine@3.1.11/dist/pixi-spine.js'],
-    ];
-    let loaded = false;
-    for (const pair of cdnCandidates) {
-      try {
-        for (const url of pair) {
-          await loadScript(url);
-        }
-        loaded = true;
-        break;
-      } catch (err) {
-        console.warn('[Spine] CDN pair failed, trying next...', err);
-      }
-    }
-    if (!loaded) throw new Error('Failed to load pixi/pixi-spine from CDN');
+    console.warn('[Spine] Local libs failed to load', e);
   }
 
   // Register pixi-spine loader plugins if available
